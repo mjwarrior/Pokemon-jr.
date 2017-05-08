@@ -10,9 +10,12 @@ import UIKit
 import MapKit
 
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, CLLocationManagerDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
+    
+    var manager = CLLocationManager()
+    
     
     
     
@@ -20,8 +23,19 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     
+        
+        
+    manager.delegate = self
     
-    mapView.showsUserLocation = true
+        if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
+         print("ready to go ")
+         mapView.showsUserLocation = true   
+        } else {
+           manager.requestWhenInUseAuthorization()
+        }
+        
+        
+    
     }
 
     
