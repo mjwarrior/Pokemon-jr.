@@ -24,10 +24,23 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="mGM-0L-GCB">
                                 <rect key="frame" x="0.0" y="28" width="320" height="540"/>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CgZ-Gs-b4J">
+                                <rect key="frame" x="260" y="40" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Raa-zI-J06"/>
+                                    <constraint firstAttribute="width" constant="50" id="V3L-ED-QeJ"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="compass"/>
+                                <connections>
+                                    <action selector="centerTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4PB-um-NeA"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="mGM-0L-GCB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Gl5-l9-AMu"/>
+                            <constraint firstAttribute="trailing" secondItem="CgZ-Gs-b4J" secondAttribute="trailing" constant="10" id="Nn9-8a-Dm4"/>
+                            <constraint firstItem="CgZ-Gs-b4J" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="Uim-yQ-kdh"/>
                             <constraint firstItem="mGM-0L-GCB" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="cAG-NR-Yo3"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="mGM-0L-GCB" secondAttribute="bottom" id="scc-WP-8Xn"/>
                             <constraint firstAttribute="trailing" secondItem="mGM-0L-GCB" secondAttribute="trailing" id="vV2-h1-zzA"/>
@@ -41,4 +54,7 @@
             </objects>
         </scene>
     </scenes>
+    <resources>
+        <image name="compass" width="512" height="512"/>
+    </resources>
 </document>
