@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D432315F1EC2368700ACE326 /* PokedexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D432315E1EC2368700ACE326 /* PokedexViewController.swift */; };
 		D49FC8091EC0D0FF00D09CF3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49FC8081EC0D0FF00D09CF3 /* AppDelegate.swift */; };
 		D49FC80B1EC0D0FF00D09CF3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49FC80A1EC0D0FF00D09CF3 /* ViewController.swift */; };
 		D49FC80E1EC0D0FF00D09CF3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D49FC80C1EC0D0FF00D09CF3 /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D432315E1EC2368700ACE326 /* PokedexViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokedexViewController.swift; sourceTree = "<group>"; };
 		D49FC8051EC0D0FE00D09CF3 /* Pokemon jr..app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pokemon jr..app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D49FC8081EC0D0FF00D09CF3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D49FC80A1EC0D0FF00D09CF3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 			children = (
 				D49FC8081EC0D0FF00D09CF3 /* AppDelegate.swift */,
 				D49FC80A1EC0D0FF00D09CF3 /* ViewController.swift */,
+				D432315E1EC2368700ACE326 /* PokedexViewController.swift */,
 				D49FC80C1EC0D0FF00D09CF3 /* Main.storyboard */,
 				D49FC8121EC0D0FF00D09CF3 /* Assets.xcassets */,
 				D49FC8141EC0D0FF00D09CF3 /* LaunchScreen.storyboard */,
@@ -153,6 +156,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D49FC8111EC0D0FF00D09CF3 /* Pokemon_jr_.xcdatamodeld in Sources */,
+				D432315F1EC2368700ACE326 /* PokedexViewController.swift in Sources */,
 				D49FC80B1EC0D0FF00D09CF3 /* ViewController.swift in Sources */,
 				D49FC8091EC0D0FF00D09CF3 /* AppDelegate.swift in Sources */,
 			);
@@ -320,6 +324,7 @@
 				D49FC81C1EC0D0FF00D09CF3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
