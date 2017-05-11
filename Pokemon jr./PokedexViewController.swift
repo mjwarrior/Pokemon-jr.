@@ -19,6 +19,8 @@ class PokedexViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+      
+               
       caughtPokemons = getAllCaughtPokemons()
       uncaughtPokemons = getAllUncaughtPokemons()
         
