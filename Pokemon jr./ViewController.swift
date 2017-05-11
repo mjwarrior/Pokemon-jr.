@@ -18,12 +18,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     var updateCount = 0
     
+    var pokemons : [Pokemon] = []
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        addAllPokemon()
+        pokemons = getAllPokemon()
         
     manager.delegate = self
     
