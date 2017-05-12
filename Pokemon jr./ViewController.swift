@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 
 
-class ViewController: UIViewController, CLLocationManagerDelegate {
+class ViewController: UIViewController, CLLocationManagerDelegate,MKMapViewDelegate{
 
     @IBOutlet weak var mapView: MKMapView!
     
@@ -29,7 +29,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     manager.delegate = self
     
         if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
-         print("ready to go ")
+            
+        mapView.delegate = self
+        
+            
          mapView.showsUserLocation = true
          manager.startUpdatingLocation()
          Timer.scheduledTimer(withTimeInterval: 5, repeats: true, block: { (timer) in
@@ -53,6 +56,39 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         
         
 }
+    
+    
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        
+        
+        if annotation is MKUserLocation {
+            let annoView = MKAnnotationView(annotation: annotation, reuseIdentifier: nil)
+            
+            annoView.image = UIImage(named: "player")
+            
+            var frame = annoView.frame
+            frame.size.height = 50
+            frame.size.width = 50
+            annoView.frame = frame
+            
+            
+            return annoView
+  
+        }
+        
+        let annoView = MKAnnotationView(annotation: annotation, reuseIdentifier: nil)
+        
+        annoView.image = UIImage(named: "charmander")
+        
+        var frame = annoView.frame
+        frame.size.height = 50
+        frame.size.width = 50
+        annoView.frame = frame
+        
+        
+        return annoView
+    }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
        
