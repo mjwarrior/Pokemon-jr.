@@ -38,13 +38,21 @@ class ViewController: UIViewController, CLLocationManagerDelegate,MKMapViewDeleg
          Timer.scheduledTimer(withTimeInterval: 5, repeats: true, block: { (timer) in
             //Spawn a pokemon 
             if let coord = self.manager.location?.coordinate {
-            let anno = MKPointAnnotation()
-            anno.coordinate = coord
+            
+            let pokemon = self.pokemons[Int(arc4random_uniform(UInt32(self.pokemons.count)))]
+                
+            let anno = PokeAnnotation(coord: coord, pokemon: pokemon)
+            
             let randoLat = (Double(arc4random_uniform(200)) - 100.0)  / 50000.0
+            
             let randoLon = (Double(arc4random_uniform(200)) - 100.0)  / 50000.0
-                anno.coordinate.latitude += randoLat
-                anno.coordinate.longitude += randoLon
-               self.mapView.addAnnotation(anno)
+                
+            
+            anno.coordinate.latitude += randoLat
+                
+            anno.coordinate.longitude += randoLon
+               
+            self.mapView.addAnnotation(anno)
             }
             })
         } else {
@@ -79,7 +87,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate,MKMapViewDeleg
         
         let annoView = MKAnnotationView(annotation: annotation, reuseIdentifier: nil)
         
-        annoView.image = UIImage(named: "charmander")
+        
+        let pokemon = (annotation as! PokeAnnotation).pokemon
+        
+        annoView.image = UIImage(named: pokemon.imageName!)
         
         var frame = annoView.frame
         frame.size.height = 50
