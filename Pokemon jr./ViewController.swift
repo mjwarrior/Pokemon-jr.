@@ -125,16 +125,29 @@ class ViewController: UIViewController, CLLocationManagerDelegate,MKMapViewDeleg
         let region = MKCoordinateRegionMakeWithDistance(view.annotation!.coordinate, 200, 200)
         mapView.setRegion(region, animated: true)
         
-        if let coord = manager.location?.coordinate {
-            if MKMapRectContainsPoint(mapView.visibleMapRect, MKMapPointForCoordinate(coord)) {
+        Timer.scheduledTimer(withTimeInterval: 1, repeats: false, block: {(timer) in
+        if let coord = self.manager.location?.coordinate {
+         if MKMapRectContainsPoint(mapView.visibleMapRect, MKMapPointForCoordinate(coord)) {
                 print("Can catch the pokemon")
-            } else {
-            print("Pokemon is to far away ")
+            
+            let pokemon = (view.annotation as! PokeAnnotation).pokemon
+            pokemon.caught = true
+            (UIApplication.shared.delegate as! AppDelegate).saveContext()
+
+            
+            
+         } else {
+                    print("Pokemon is to far away ")
+                }
+                
+                
             }
+
         
+        })
+    
         
-        }
-    }
+           }
     
     
     
