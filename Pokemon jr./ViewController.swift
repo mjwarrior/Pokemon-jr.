@@ -127,18 +127,47 @@ class ViewController: UIViewController, CLLocationManagerDelegate,MKMapViewDeleg
         
         Timer.scheduledTimer(withTimeInterval: 1, repeats: false, block: {(timer) in
         if let coord = self.manager.location?.coordinate {
-         if MKMapRectContainsPoint(mapView.visibleMapRect, MKMapPointForCoordinate(coord)) {
-                print("Can catch the pokemon")
-            
             let pokemon = (view.annotation as! PokeAnnotation).pokemon
+
+            if MKMapRectContainsPoint(mapView.visibleMapRect, MKMapPointForCoordinate(coord)) {
+                
+            
             pokemon.caught = true
             (UIApplication.shared.delegate as! AppDelegate).saveContext()
 
+            mapView.removeAnnotation(view.annotation!)
+                
+            let alertVC = UIAlertController(title: "Congrats", message: "You caught a \(pokemon.name!) you are a pokemon master!!", preferredStyle: .alert)
+                
+                let pokedexAction = UIAlertAction(title: "Pokedex", style: .default, handler: { (action) in
+                self.performSegue(withIdentifier: "pokedexSegue", sender: nil)
+                })
+                
+                alertVC.addAction(pokedexAction)
+
+                
+                let OKaction = UIAlertAction(title: "Ok", style: .default, handler:nil)
+                
+            alertVC.addAction(OKaction)
+            
+                
+                self.present(alertVC, animated: true, completion: nil)
+                
+    
+            
             
             
          } else {
-                    print("Pokemon is to far away ")
-                }
+                   let alertVC = UIAlertController(title: "Uh-Oh", message: "You are too far away to catch the \(pokemon.name!) move closer to it!", preferredStyle: .alert)
+                   let OKaction = UIAlertAction(title: "Ok", style: .default, handler:nil)
+            
+            alertVC.addAction(OKaction)
+            self.present(alertVC, animated: true, completion: nil)
+            
+            
+            
+            
+            }
                 
                 
             }
